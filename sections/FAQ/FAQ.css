@@ -1,0 +1,185 @@
+
+#title {
+
+  color: #0A2540;
+  font-family: var(--font-st1);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 58px;
+
+}
+
+#searchInput {
+  border-width: 2px;
+  border-color: #d1d5db; /* gray-300 */
+  border-radius: 0.25rem; /* rounded */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow */
+  width: 75%; /* w-full */
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem; /* px-3 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+  height: 3rem; /* h-12 */
+  outline: none; /* focus:outline-none */
+}
+  
+#searchInput:focus {
+  border-color: #3b82f6;
+}
+
+.searchContainer {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+#faqContainer > * + * {
+  margin-top: 1rem; /* 16px */
+ 
+}
+
+#faqContainer {
+  min-height: 300px;;
+}
+
+.faqItem {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.faqItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  border-color: #e0e0e0;
+}
+
+.faqItem {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.faqItem {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.faqTitle {
+  color: #0A2540;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+/* FAQText (estado colapsado) */
+.faqText {
+
+  color: #425466;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+
+  max-height: 70px;           /* Altura fechada */
+  overflow: hidden;           
+  position: relative;         
+  transition: max-height 0.5s ease; 
+}
+
+/* Gradiente no final, indicando que há mais texto */
+.faqText::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px; 
+  background: linear-gradient(to top, #fff, rgba(255, 255, 255, 0));
+}
+
+/* Remove gradiente para textos curtos */
+.shortContent::after {
+  display: none;
+}
+
+/* Ao expandir */
+.faqItem.expanded .faqText {
+  max-height: 1000px;  /* Ou algo que caiba todo o texto */
+}
+
+/* Remove gradiente quando expandido */
+.faqItem.expanded .faqText::after {
+  display: none;
+}
+
+#noResults {
+  display: none;
+  position: relative; 
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#noResultsImg {
+  /* Agora a imagem fica em posição absoluta dentro do #noResults */
+  position: absolute; 
+  top: 0;      /* Ajuste conforme a posição desejada */
+  left: 50%;   /* Ajuste conforme a posição desejada */
+  transform: translate(-105%, 10%);
+  
+  /* Defina a largura e possíveis propriedades visuais */
+  max-width: 250px;
+
+  /* Coloca a imagem "atrás" */
+  z-index: -1;
+  
+  /* Exemplo de opacidade para ficar “marcada d’água” */
+  opacity: 0.5; 
+
+  /* Aplicando uma máscara para "revelar" a imagem de cima até certo ponto,
+  e ir ficando transparente em direção ao final. */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 80%,   /* Posição onde a transição começa */
+    rgba(0, 0, 0, 0) 100%   /* Totalmente transparente aqui */
+    );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+#noResultsText {
+  position: relative;
+  color: #0A2540;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+  z-index: 1;
+}
+
+#noResultsTextBottom {
+  color: #425466;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  position: relative;
+  z-index: 1;
+}
