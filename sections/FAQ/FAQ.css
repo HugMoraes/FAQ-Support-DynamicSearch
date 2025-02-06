@@ -34,16 +34,57 @@
   justify-content: center;
 }
 
-#faqContainer > * + * {
-  margin-top: 1rem; /* 16px */
- 
+#searchResults {
+  min-height: 325px;
 }
 
 #faqContainer {
-  min-height: 300px;;
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  /* grid-template-rows: repeat(4, auto);  */
+}
+
+#loadingContainer {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  
+}
+
+#imgSpinner {
+  max-width: 200px;
+  opacity: 0.5; 
+  /* Define a máscara usando um gradiente radial */
+  /* Aplicando a máscara para fazer o gradiente circular */
+  -webkit-mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 50%,  
+    rgba(0, 0, 0, 0) 65%  
+  );
+  mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 65%
+  );
+  
+  /* Garantindo que a máscara se expanda por toda a área */
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 .faqItem {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s cubic-bezier(0.5, 0, 0, 1) 0.4s, transform 0.6s cubic-bezier(0.5, 0, 0, 1) 0.4s;
+}
+
+.faqItem.animate {
   background-color: #ffffff;
   padding: 25px;
   border-radius: 12px;
@@ -52,6 +93,10 @@
   cursor: pointer;
   border: 1px solid #f0f0f0;
   overflow: hidden;
+  margin-bottom: 1rem;
+  opacity: 1;
+  transform: translateY(0);
+  
 }
 
 .faqItem:hover {
@@ -60,15 +105,7 @@
   border-color: #e0e0e0;
 }
 
-.faqItem {
-  margin-bottom: 1rem;
-  cursor: pointer;
-}
 
-.faqItem {
-  margin-bottom: 1rem;
-  cursor: pointer;
-}
 
 .faqTitle {
   color: #0A2540;
