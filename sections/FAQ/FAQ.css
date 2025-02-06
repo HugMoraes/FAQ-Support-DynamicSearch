@@ -129,7 +129,7 @@
   max-height: 70px;           /* Altura fechada */
   overflow: hidden;           
   position: relative;         
-  transition: max-height 0.5s ease; 
+  transition: max-height 0.6s ease; 
 }
 
 /* Gradiente no final, indicando que há mais texto */
@@ -151,6 +151,7 @@
 /* Ao expandir */
 .faqItem.expanded .faqText {
   max-height: 1000px;  /* Ou algo que caiba todo o texto */
+  transition: max-height 2s ease; 
 }
 
 /* Remove gradiente quando expandido */
@@ -164,6 +165,15 @@
   width: 100%;
   text-align: center;
   margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+#noResults.show {
+  transition: opacity 0.3s cubic-bezier(0.5, 0, 0, 1) 0.1s,
+              transform 0.3s cubic-bezier(0.5, 0, 0, 1) 0.1s;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #noResultsImg {

@@ -1,8 +1,20 @@
+function showLoading() {
+  if (loadingContainer) {
+      loadingContainer.style.display = 'flex';
+  }
+}
+
+function hideLoading() {
+    if (loadingContainer) {
+        loadingContainer.style.display = 'none';
+    }
+}
+
+
 export function initFAQ() {
     const searchInput = document.getElementById('searchInput');
     const faqContainer = document.getElementById('faqContainer');
     const loadingContainer = document.getElementById('loadingContainer');
-    const noResults = document.getElementById('noResults');
 
     // Se os elementos básicos não existirem no DOM, sai da função
     if (!searchInput || !faqContainer) {
@@ -12,18 +24,6 @@ export function initFAQ() {
 
     // Variável para manter todos os dados do FAQ carregados do JSON
     let allFaqs = [];
-
-    function showLoading() {
-      if (loadingContainer) {
-          loadingContainer.style.display = 'flex';
-      }
-    }
-
-    function hideLoading() {
-        if (loadingContainer) {
-            loadingContainer.style.display = 'none';
-        }
-    }
 
     // Renderiza as FAQs no container
     function renderFaqs(data) {
@@ -114,6 +114,25 @@ export function initFAQ() {
       }
     }
 
+    function toggleNoResults(show) {
+      const element = document.getElementById("noResults");
+  
+      if (show) {
+          element.style.display = "block"; // Torna visível antes da animação
+          requestAnimationFrame(() => {
+              element.classList.add("show");
+          });
+      } else {
+          element.classList.remove("show"); // Remove a classe instantaneamente
+          element.style.transition = "none"; // Remove transição ao esconder
+  
+          setTimeout(() => {
+              element.style.display = "none"; // Esconde completamente
+              element.style.transition = ""; // Restaura a transição ao exibir novamente
+          }, 0);
+      }
+    }
+
     // Carrega FAQs assim que a função initFAQ é iniciada
     loadFaqs();
 
@@ -125,7 +144,7 @@ export function initFAQ() {
 
       // Limpa os Faqs e o não encontrado se tiver
       faqContainer.innerHTML = '';
-      noResults.style.display = 'none';
+      toggleNoResults(false)
     
       // Mostra loading sempre que o usuário começa a digitar
       showLoading();
@@ -144,10 +163,9 @@ export function initFAQ() {
     
         // Exibe ou oculta a mensagem "sem resultados"
         if (filteredFaqs.length === 0) {
-          console.log("sem resultados");
-          noResults.style.display = 'block';
+          toggleNoResults(true)
         } else {
-          noResults.style.display = 'none';
+          toggleNoResults(false)
         }
     
         // Re-renderiza apenas os resultados filtrados
