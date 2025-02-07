@@ -16,6 +16,7 @@ export class SearchArrows{
 
         eventBus.subscribe("faqColumnCount", (faqColumnCount) => {
             this.currentColumnCount = faqColumnCount;
+            this.currentColumn = 1
             this.renderArrows();
             
         });

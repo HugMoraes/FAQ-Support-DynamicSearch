@@ -59,7 +59,7 @@ export class FaqContainer {
     searchFaqs(searchTerm) {
         let searchResult = true;
         if (!searchTerm) {
-            // Se não tiver termo de busca, volta a exibir tudo
+            // Se não tiver termo de busca
             this.filteredFaqs = this.allFaqs;
         } else {
             const lowerSearchTerm = searchTerm.toLowerCase();
