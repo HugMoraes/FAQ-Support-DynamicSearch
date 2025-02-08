@@ -1,7 +1,7 @@
 import { Chat } from "./Models/Chat.js"
 import { UserInput } from "./Models/UserInput.js"
 import { ChatBot } from "./Models/ChatBot.js"
-import { loadEnv } from "../../../core/utils.js" 
+import { loadIds } from "../../../core/utils.js" 
 import eventBus from "../../core/pubSub.js";
 
 export async function initchatBot() {
@@ -23,7 +23,7 @@ export async function initchatBot() {
     
     try {
         // Carrega chaves da API de .env
-        const ids = await loadEnv();
+        const ids = await loadIds();
         // Instancia o chatbot
         const chatBot = new ChatBot(ids.clientid, ids.projectid);
     } catch (error) {
