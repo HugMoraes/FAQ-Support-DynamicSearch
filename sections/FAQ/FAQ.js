@@ -19,7 +19,7 @@ export function initFAQ() {
     const searchArrows = new SearchArrows(leftArrowElement, rightArrowElement);
 
     // Lê o arquivo .json com as FAQs e renderiza
-    faqContainer.loadFaqs("../../assets/FAQ.json");
+    faqContainer.loadFaqs("../../data/FAQ.json");
 
     const searchInput = document.getElementById('searchInput');
     let debounceTimer; // variável que guardará o timer

@@ -3,45 +3,27 @@
         <div id="chatApp">
             <div id="chatMainArea">
                 <div id="topBar">
-                    <div id="modelIconContainer">
-                        <img src="../../assets/MerlinProfile.png" alt="Imagem Redonda">
+                    <div id="botIdentifierContainer">
+                        <div id="modelIconContainer">
+                            <img src="../../assets/MerlinProfile.png" alt="Imagem Redonda">
+                        </div>
+                        <div id="topBarTextContainer">
+                            <p id="topBarTitle">Merlin</p>
+                            <p id="topBarSubTitle">Sempre online</p>
+                        </div>
                     </div>
-                    <div id="topBarTextContainer">
-                        <p id="topBarTitle">Merlin</p>
-                        <p id="topBarSubTitle">Sempre online</p>
-                    </div>
+                    <div id="topBarTools">
+                        <div id="helpButton">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                            </svg>
+                        </div>
+                    </div>    
                 </div>
                 <div id="chatAreaContainer">
                     <div id="chatArea">
                         <div id="chat">
-                            <div id="messageRow" >
-                                <div id="messageBox">
-                                    <div id="messageText">
-                                        Lorem Ipsum é um texto fictício usado na produção gráfica. Ele é utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.Lorem Ipsum é um texto fictício usado na produção gráfica.
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="messageRow" >
-                                <div id="messageBox">
-                                    <div id="messageText">
-                                        Lorem Ipsum é um texto fictício usado na produção gráfica. Ele é utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.Lorem Ipsum é um texto fictício usado na produção gráfica.
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="messageRow" >
-                                <div id="messageBox">
-                                    <div id="messageText">
-                                        Lorem Ipsum é um texto fictício usado na produção gráfica. Ele é utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.Lorem Ipsum é um texto fictício usado na produção gráfica.
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="messageRow" class="leftSide">
-                                <div id="messageBox">
-                                    <div id="messageText">
-                                        O que é Lorem Ipsum?
-                                    </div>
-                                </div>
-                            </div>
                             
                         </div>
                         <div id="userInputAreaContainer">
@@ -59,6 +41,29 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div id="helpContainer">
+                    <div id="helpModal" class="inset-0 bg-black bg-opacity-50 items-center justify-center flex">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-md w-full">
+                            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Ajuda e Informações</h2>
+                            <p class="mb-4 text-gray-700 dark:text-gray-300">Este chatbot utiliza inteligência artificial para fornecer assistência. Suas interações são processadas de forma segura e confidencial.</p>
+                            <h3 class="font-bold mb-2 text-gray-900 dark:text-gray-100">Informações de LGPD e Privacidade:</h3>
+                            <ul class="list-disc pl-5 mb-4 text-gray-700 dark:text-gray-300">
+                                <li>Seus dados pessoais são tratados de acordo com a Lei Geral de Proteção de Dados (LGPD).</li>
+                                <li>Não compartilhamos suas informações com terceiros sem seu consentimento.</li>
+                                <li>Você tem direito de acessar, corrigir e solicitar a exclusão dos seus dados.</li>
+                                <li>Para mais informações sobre nossa política de privacidade, entre em contato conosco.</li>
+                            </ul>
+                            <button id="clearSession" class="w-full px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 mb-4">
+                                Limpar Sessão
+                            </button>
+                            <button id="closeHelp" class="w-full px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500">
+                                Fechar
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
