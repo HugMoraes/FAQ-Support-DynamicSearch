@@ -1,6 +1,7 @@
 import { Chat } from "./Models/Chat.js"
 import { UserInput } from "./Models/UserInput.js"
 import { ChatBot } from "./Models/ChatBot.js"
+import { SecretButtons } from "./Models/SecretButtons.js"
 import { loadIds } from "../../../core/utils.js" 
 import eventBus from "../../core/pubSub.js";
 
@@ -18,8 +19,12 @@ export async function initchatBot() {
     // Instancia as classes dos elementos do DOM
     const userInput = new UserInput(formElement, inputElement, sendButtonElement);
     const chat = new Chat(chatElement);
+    const secretButtons = new SecretButtons();
+
+    secretButtons.loadButtonAliases("../../data/secretButtonAliases.json");
     
-    //console.log(chat);
+    console.log(chat);
+    console.log(secretButtons);
     
     try {
         // Carrega chaves da API de .env
@@ -36,6 +41,14 @@ export async function initchatBot() {
 
     closeHelpButtonElement.addEventListener('click', () => {
         helpContainerElement.style.display = 'none'
+        
+        /*
+        document.querySelectorAll('.navegationButton').forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('appear');
+            }, index * 1000); // 5000ms = 5 segundos de atraso para cada elemento
+          });
+          */
     });
 
     clearSessionButtonElement.addEventListener('click', () => {
