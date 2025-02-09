@@ -58,21 +58,42 @@ export class FaqContainer {
      */
     searchFaqs(searchTerm) {
         let searchResult = true;
+
+        // Se não houver termo de busca, retorna todas as FAQs
         if (!searchTerm) {
-            // Se não tiver termo de busca
             this.filteredFaqs = this.allFaqs;
         } else {
-            const lowerSearchTerm = searchTerm.toLowerCase();
+            // Função para normalizar os textos: converte para minúsculas e remove acentuação
+            const normalize = (text) =>
+                text
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+
+            // Normaliza a entrada do usuário e separa as palavras-chave
+            const normalizedSearchTerm = normalize(searchTerm);
+            const keywords = normalizedSearchTerm.split(/\s+/).filter(Boolean);
+
+            // Filtra as FAQs que contenham todas as palavras-chave no título ou no texto
             this.filteredFaqs = this.allFaqs.filter((faq) => {
-                const title = faq.title.toLowerCase();
-                const text = faq.text.toLowerCase();
-                return title.includes(lowerSearchTerm) || text.includes(lowerSearchTerm);
+                const normalizedTitle = normalize(faq.title);
+                const normalizedText = normalize(faq.text);
+
+                // Verifica se todas as palavras-chave estão presentes em algum dos campos
+                return keywords.every(
+                    (keyword) =>
+                        normalizedTitle.includes(keyword) ||
+                        normalizedText.includes(keyword)
+                );
             });
         }
 
         if (this.filteredFaqs.length === 0) {
             searchResult = false;
         }
+
+
+        
   
         // Renderiza as FAQs filtradas
         this.renderFaqs(1);

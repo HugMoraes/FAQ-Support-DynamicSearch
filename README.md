@@ -8,69 +8,22 @@ Esta é uma aplicação web desenvolvida utilizando HTML, CSS e JavaScript puro,
 
 ```
 /
-│── .env
-│── .gitignore
-│── dockerfile
-│── index.html
-│── README.md
-│── text.tmp
-│
-├── assets/
-│   ├── arrow.svg
-│   ├── MerlinNotFound.png
-│   ├── MerlinProfile.png
-│   ├── MerlinSearchingLoop.gif
-│
-├── components/
-│   ├── footer/
-│   │   ├── footer.css
-│   │   ├── footer.html
-│   │   ├── footer.js
-│   │
-│   ├── navBar/
-│   │   ├── navBar.css
-│   │   ├── navBar.html
-│   │   ├── navBar.js
-│   │
-│   ├── sideBar/
-│   │   ├── sideBar.css
-│   │   ├── sideBar.html
-│   │   ├── sideBar.js
-│   │
-│   ├── sideBarPlat/
-│   │   ├── sideBarPlat.css
-│   │   ├── sideBarPlat.html
-│   │   ├── sideBarPlat.js
-│
-├── core/
-│   ├── loadComponents.js
-│   ├── pubSub.js
-│   ├── utils.js
-│
-├── data/
-│   ├── FAQ.json
-│
-└── sections/
-    ├── chatBot/
-    │   ├── chatBot.css
-    │   ├── chatBot.html
-    │   ├── chatBot.js
-    │   │
-    │   ├── Models/
-    │   │   ├── Chat.js
-    │   │   ├── ChatBot.js
-    │   │   ├── UserInput.js
-    │
-    ├── FAQ/
-    │   ├── FAQ.css
-    │   ├── FAQ.html
-    │   ├── FAQ.js
-    │   │
-    │   ├── Models/
-    │   │   ├── FaqContainer.js
-    │   │   ├── LoadingContainer.js
-    │   │   ├── NoResultsContainer.js
-    │   │   ├── SearchArrows.js
+├── assets/          # Contém arquivos estáticos (imagens, gifs, svg, etc.)
+├── components/      # Componentes padrões reutilizáveis da interface do usuário
+│   ├── footer/      # Componente de rodapé da página
+│   ├── navBar/      # Componente de barra de navegação
+│   ├── sideBar/     # Componente de barra lateral
+│   └── sideBarPlat/ # Componente da barra lateral da plataforma
+├── core/            # Funcionalidades e utilitários centrais da aplicação
+├── data/            # Dados de informação estáticos .json
+├───image/           # ScreenShots da aplicação para o README.md
+│   └───README/
+└── sections/        # Seções principais da aplicação
+    ├── chatBot/     # Seção dedicada ao chatbot
+    │   └── Models/  # Classes de manipulação da seção e o chatbot
+    └── FAQ/         # Seção de Perguntas Frequentes
+        └── Models/  # Classes de manipulação do FAQ
+
 ```
 
 ## 🚀 Como Rodar a Aplicação
@@ -101,70 +54,40 @@ Esta é uma aplicação web desenvolvida utilizando HTML, CSS e JavaScript puro,
 
 ## 🤖 Como o Chatbot foi Treinado
 
-O chatbot presente no projeto funciona utilizando regras predefinidas armazenadas em `FAQ.json`. Ele processa a entrada do usuário e tenta encontrar respostas correspondentes baseadas nas perguntas e respostas pré-definidas.
+O chatbot presente no projeto funciona utilizando informações da própria STEC, no comportamento padrão (tipo system) foi dito para se comportar como atendente da STEC tentando convencer o usuário de utilizar os produtos dela, as repostas devem ser longas a menos que seja pedido pelo usuário, além de não reponder perguntas fora do objetivo do bot e caso aconteça, tentar linkar a resposta à pergunta do usuário com o objetivo de convencer ele. Já as informações de consulta (tipo data) foi colocado perguntas e respostas geradas pelo GPT-4o a partir das informações das páginas específicas da STEC (Home, Merlin, Advia) e do blog também. 
+
+## 📲 Como o front-end se comunica com a API
+
+A comunicação é simples, existe uma classse chamada ChatBot que faz as chamadas de API padrão para o merlin. A entrada do usuário é o texto escrito no Chat da seção chatBot do front-end, e ao clicar no botão ao lado para enviar, o texto escrito é guardado e colocado no payload da requisição, durante esse tempo, não é possível digitar pois está sendo aguardado a resposta da API. Quando a resposta chega ela é processada para aceitar o markdown e é colocada dentro de um container de mensagem para aparecer no Chat do front-end.
 
 📌 **Arquivos Relevantes:**
 
-- `sections/chatBot/chatBot.js` – Lógica principal do chatbot.
-- `data/FAQ.json` – Base de conhecimento do chatbot.
-
-## 🔗 Como o Front-end se Comunica com a API
-
-O front-end se comunica com a API do chatbot através de chamadas JavaScript utilizando `fetch()`. O código está estruturado no arquivo `chatBot.js` dentro da pasta `sections/chatBot`. A API responde com base nos dados presentes no arquivo `FAQ.json`, retornando respostas para as perguntas feitas pelo usuário.
-
-## 🧪 Como Testar o Chatbot
-
-Para testar o chatbot, siga os passos:
-
-1. Certifique-se de que a aplicação está rodando.
-2. Acesse a página principal no navegador.
-3. Digite uma pergunta no campo de entrada do chatbot.
-4. Verifique se o chatbot responde corretamente com base nas perguntas definidas no arquivo `FAQ.json`.
-5. Caso precise alterar as respostas, edite o `FAQ.json` e reinicie a aplicação.
+- `sections/chatBot/Models/ChatBot.js` – Lógica principal do chatbot.
 
 ## 🎨 Capturas de Tela
+### FAQs ✍🏽
 
-| Tela Inicial 🏠 | Chatbot Ativo 🤖 |
-| --------------- | ---------------- |
-|                 |                  |
+![1739135987391](image/README/1739135987391.png)
+![1739136101300](image/README/1739136101300.png)
+![1739136344158](image/README/1739136344158.png)
+
+### ChatBot 🤖
+
+![1739136390841](image/README/1739136390841.png)
+![1739136403688](image/README/1739136403688.png)
+![1739136438826](image/README/1739136438826.png)
+![1739136460735](image/README/1739136460735.png)
 
 ## 🛠 Tecnologias Utilizadas
 
 - HTML5
 - CSS3
-- JavaScript (ES6+)
+- JavaScript
 - Docker
-
-## 📌 Funcionalidades
-
-✅ Chatbot interativo ✅ FAQ dinâmico ✅ Interface modularizada
 
 ## 🎯 Roadmap Futuro
 
-🔹 Adicionar suporte a múltiplos idiomas 🌍 🔹 Melhorar a UI/UX 🎨 🔹 Integrar um backend para respostas personalizadas 🔗
+🔹 Adicionar dark mode 🌒 🔹 Melhorar a UI/UX 🎨 🔹 Integrar respostas mais personalizadas ✏️🔹 Melhorar a experiência de botões e ações do ChatBot 🔼 🔹 Carregar página em buffer antes de renderizar para o usuário ⌛ 🔹
 
-## 🤝 Contribuição
-
-Se desejar contribuir com melhorias para o projeto, siga os seguintes passos:
-
-1. Faça um fork do repositório.
-2. Crie uma branch para sua funcionalidade:
-   ```sh
-   git checkout -b minha-feature
-   ```
-3. Faça commit das suas mudanças:
-   ```sh
-   git commit -m "Adicionei uma nova funcionalidade"
-   ```
-4. Envie suas mudanças:
-   ```sh
-   git push origin minha-feature
-   ```
-5. Abra um Pull Request.
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
-
-📬 **Contato:** [seu-email@email.com](mailto\:seu-email@email.com)
+📬 **Contato:** [hugomoraes013579@gmail.com](mailto\:hugomoraes013579@gmail.com)
 
