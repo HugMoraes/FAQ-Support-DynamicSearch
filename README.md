@@ -2,7 +2,7 @@
 
 ## 📜 Descrição
 
-Esta é uma aplicação web desenvolvida utilizando HTML, CSS e JavaScript puro, organizada em componentes modulares. A aplicação inclui um chatbot interativo 🤖 e uma seção de perguntas frequentes (FAQ). A ideia surgiu pela demanda da empresa [Stec](https://stec.cx) em suas página de [oportunidade de trabalho freelancer](https://stec/jobs). Mais especificamente na demanda "Criar página de FAQ/Suporte com busca dinâmica". O projeto está configurado para ser executado em um contêiner Docker 🐳.
+Esta é uma aplicação web desenvolvida utilizando HTML, CSS e JavaScript puro, organizada em componentes modulares. A aplicação inclui um chatbot interativo 🤖 e uma seção de perguntas frequentes (FAQ). A ideia surgiu pela demanda da empresa [Stec](https://stec.cx) em sua página de [oportunidade de trabalho freelancer](https://stec.cx/jobs). Mais especificamente na demanda "Criar página de FAQ/Suporte com busca dinâmica". O projeto está configurado para ser executado em um contêiner Docker 🐳.
 
 ## 📂 Estrutura do Projeto
 
