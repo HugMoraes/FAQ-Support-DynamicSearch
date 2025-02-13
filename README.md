@@ -56,11 +56,11 @@ Esta é uma aplicação web desenvolvida utilizando HTML, CSS e JavaScript puro,
 
 1. A seção de FAQs possui uma busca dinâmica em que se usa as palavras na busca e faz o match com as palavras dos textos (Perguntas e Respostas) e mostra apenas as FAQs que possuem todas as palavras chave no texto.
 
-2. O ChatBot foi configurado para convencer o usuário de utilizar os serviços da Stec e possui um botão de encaminhar caso o usuário ou o ChatBot mencionem qualquer um  três palavras: "Merlin", "Advia" e "Blog". Obs:. No arquivo `data/secretButtonAlias.js` mostra quais palavras ativam quais botões, por exemplo, as palavras "blog", "artigo", "noticia" e "publicação" ativam o botão de Blog.
+2. O ChatBot foi configurado para convencer o usuário de utilizar os serviços da Stec e possui um botão de encaminhar caso o usuário ou o ChatBot mencionem qualquer um  três palavras: "Merlin", "Advia" e "Blog". Obs:. No arquivo `data/secretButtonAlias.json` mostra quais palavras ativam quais botões, por exemplo, as palavras "blog", "artigo", "noticia" e "publicação" ativam o botão de Blog.
 
 ## 🤖 Como o Chatbot foi Treinado
 
-O chatbot presente no projeto funciona utilizando informações da própria STEC, no comportamento padrão (tipo system) foi dito para se comportar como atendente da STEC tentando convencer o usuário de utilizar os produtos dela, as repostas devem ser longas a menos que seja pedido pelo usuário, além de não reponder perguntas fora do objetivo do bot e caso aconteça, tentar linkar a resposta à pergunta do usuário com o objetivo de convencer ele. Já as informações de consulta (tipo data) foi colocado perguntas e respostas geradas pelo GPT-4o a partir das informações das páginas específicas da STEC (Home, Merlin, Advia) e do blog também. 
+O chatbot presente no projeto funciona utilizando informações da própria STEC, no comportamento padrão (tipo system) foi dito para se comportar como atendente da STEC tentando convencer o usuário de utilizar os produtos dela, as repostas não devem ser longas a menos que seja pedido pelo usuário, além de não reponder perguntas fora do objetivo do bot e caso aconteça, tentar linkar a resposta à pergunta do usuário com o objetivo de convencer ele. Já as informações de consulta (tipo data) foi colocado perguntas e respostas geradas pelo GPT-4o a partir das informações das páginas específicas da STEC (Home, Merlin, Advia) e do blog também. 
 
 ## 📲 Como o front-end se comunica com a API
 
