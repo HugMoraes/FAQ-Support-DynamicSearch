@@ -1,4 +1,4 @@
-# 🌐 Web Application
+# 🌐 Web Application (Deprecated)
 
 ## 📜 Descrição
 
